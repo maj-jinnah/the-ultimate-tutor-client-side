@@ -4,7 +4,7 @@ import { FaCrown } from 'react-icons/fa';
 
 const CardDetails = () => {
     const data = useLoaderData();
-    const { title, image, description, Price} = data;
+    const { title, image, description, Price, id} = data;
     
     return (
         <div className='mb-10'>
@@ -20,6 +20,7 @@ const CardDetails = () => {
                         <p className='text-lg font-bold text-white'>Price: {Price}</p>
                         <button className='bg-yellow-400 px-2 py-2 rounded-md text-white hover:bg-yellow-500'>
                             <Link to='/checkout' className='flex justify-between items-center text-white-700'> <FaCrown className='mr-2'></FaCrown> Get Premium</Link>
+                            {/* <Link to={`/checkout/${id}`} className='flex justify-between items-center text-white-700'> <FaCrown className='mr-2'></FaCrown> Get Premium</Link> */}
                         </button>
                     </div>
                 </div>
