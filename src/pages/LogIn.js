@@ -4,8 +4,11 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { useState } from 'react';
 
 const LogIn = () => {
+    
+    const [error, setError] = useState('')
     const { googleProviderLogin, signInUser } = useContext(AuthContext)
     const navigate = useNavigate()
 
@@ -32,10 +35,14 @@ const LogIn = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
-                form.reset()
+                form.reset();
+                setError('');
                 navigate('/')
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
+            });
     }
 
     return (
@@ -57,7 +64,7 @@ const LogIn = () => {
                             </label>
                             <input type="password" placeholder="password" name='password' className="input input-bordered" />
                             <label className="label">
-                                {/* <Link to='/' className="label-text-alt link link-hover">Forgot password?</Link> */}
+                                <p className='text-red-600'>{error}</p>
                             </label>
                         </div>
                         <div className="form-control mt-6">
