@@ -10,7 +10,6 @@ const Card = ({ course }) => {
             </div>
             <div className='flex justify-between pt-2 items-center'>
                 <h3>Language Name: <span className='text-violet-700 text-2xl font-bold'>{title}</span></h3>
-                
                 <button className='bg-violet-600 px-2 py-2 rounded-md text-white hover:bg-blue-700'>
                     <Link to={`/courses/${id}`}>Start Now</Link>
                 </button>

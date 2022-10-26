@@ -11,6 +11,7 @@ const Courses = () => {
     return (
         <div className='grid sm:grid-cols-1 md:grid-cols-12 gap-3'>
             <div className='md:col-span-3 mt-10'>
+                <h1 className='text-2xl font-bold text-violet-600'>Courses list:</h1>
                 {
                     courses.map(course => <p key={course.id} className='my-5'><button>
                         <Link to={`/courses/${course.id}`}>{course.title}</Link>
