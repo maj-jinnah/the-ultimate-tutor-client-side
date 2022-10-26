@@ -5,6 +5,7 @@ import Courses from "../../pages/Courses.js"
 import LogIn from "../../pages/LogIn";
 import Blog from "../../pages/Blog";
 import Register from "../../pages/Register";
+import ErrorPage from "../../pages/ErrorPage";
 
 export const routes = createBrowserRouter([
     {
@@ -17,6 +18,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
+                loader: () => fetch("http://localhost:5000/courses"),
                 element: <Courses></Courses>
             },
             {
@@ -32,5 +34,9 @@ export const routes = createBrowserRouter([
                 element: <Register></Register>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
     }
 ])
