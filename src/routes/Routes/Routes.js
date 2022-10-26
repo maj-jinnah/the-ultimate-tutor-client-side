@@ -8,6 +8,7 @@ import Register from "../../pages/Register";
 import ErrorPage from "../../pages/ErrorPage";
 import CardDetails from "../../pages/CardDetails";
 import CheckOut from "../../pages/CheckOut";
+import FAQ from "../../pages/FAQ";
 
 export const routes = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
             },
             {
                 path: '/register',

@@ -13,7 +13,7 @@ const Courses = () => {
             <div className='md:col-span-3 mt-10'>
                 <h1 className='text-2xl font-bold text-violet-600 text-center'>Courses list:</h1>
                 {
-                    courses.map(course => <p key={course.id} className='my-5 text-center'><button>
+                    courses.map(course => <p key={course.id} className='my-5 text-center text-white'><button>
                         <Link to={`/courses/${course.id}`}>{course.title}</Link>
                         
                     </button></p>)
