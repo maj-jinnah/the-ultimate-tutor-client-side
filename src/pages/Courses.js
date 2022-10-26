@@ -1,6 +1,7 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Card from './Card';
+import CardDetails from './CardDetails';
 
 const Courses = () => {
     const courses = useLoaderData();
@@ -11,7 +12,10 @@ const Courses = () => {
         <div className='grid sm:grid-cols-1 md:grid-cols-12 gap-3'>
             <div className='md:col-span-3 mt-10'>
                 {
-                    courses.map(course => <p  key={course.id} className='my-5'><button> {course.title}</button></p>)
+                    courses.map(course => <p key={course.id} className='my-5'><button>
+                        <Link to={`/courses/${course.id}`}>{course.title}</Link>
+                        
+                    </button></p>)
                 }
             </div>
 
