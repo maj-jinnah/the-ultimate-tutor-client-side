@@ -31,7 +31,8 @@ export const routes = createBrowserRouter([
                 element: <CardDetails></CardDetails>
             },
             {
-                path: '/checkout',
+                path: '/checkout/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
                 element: <PrivetRoute><CheckOut></CheckOut></PrivetRoute>
             },
             {
