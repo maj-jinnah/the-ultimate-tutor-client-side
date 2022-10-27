@@ -5,9 +5,10 @@ import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const LogIn = () => {
-    
+
     const [error, setError] = useState('')
     const { googleProviderLogin, signInUser } = useContext(AuthContext)
     const navigate = useNavigate()
@@ -22,6 +23,7 @@ const LogIn = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
 
@@ -40,12 +42,13 @@ const LogIn = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
+                toast.success('Successfully LogIn')
             })
             .catch(error => {
                 console.error(error);
                 setError(error.message);
-            });
+            })
     }
 
     return (

@@ -9,7 +9,7 @@ const PrivetRoute = ({children}) => {
     const location = useLocation()
 
     if(loading){
-        return <progress className="progress w-56 bg-green-400"></progress>
+        return <progress className="mx-auto progress w-56 bg-green-400"></progress>
     }
 
     if(!user){

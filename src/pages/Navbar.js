@@ -38,9 +38,8 @@ const Navbar = () => {
                     }
                 </ul>
                 <div className='hidden md:flex items-center'>
-                    <p className='text-white'>{user?.displayName}</p>
                     {user?.photoURL ?
-                        <img className='rounded-xl' style={{ hight: '30px', width: '30px' }} src={user.photoURL} alt=''></img> :
+                        <img className='rounded-xl' style={{ hight: '30px', width: '30px' }} src={user.photoURL} alt='' title={user?.displayName}></img> :
                         <FaUser></FaUser>
                     }
 
@@ -50,16 +49,11 @@ const Navbar = () => {
 
                     <label tabIndex={0} className="btn btn-ghost ">
                         <div className="w-10 rounded-full">
-                            {/* <img src="https://placeimg.com/80/80/people" className='btn-circle avatar' /> */}
                             {/* <FaBars className='text-2xl mx-auto' /> */}
-
-
                             {user?.photoURL ?
-                                <img className='rounded-lg' style={{ hight: '40px', width: '40px' }} src={user.photoURL} alt=''></img> :
+                                <img className='rounded-lg' style={{ hight: '40px', width: '40px' }} src={user.photoURL} alt='' title={user?.displayName}></img> :
                                 <FaBars className='text-2xl mx-auto' />
                             }
-
-
                         </div>
                     </label>
                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">

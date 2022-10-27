@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 
@@ -16,7 +17,6 @@ const Register = () => {
         const photoURL = form.photoURL.value
         const email = form.email.value;
         const password = form.password.value;
-        // console.log(name, photoURL, email, password);
 
         createUser(email, password)
             .then((result) => {
@@ -25,6 +25,7 @@ const Register = () => {
                 form.reset();
                 setError('');
                 handelUpdateUserProfile(name, photoURL)
+                toast.success('Registered successfully!')
             })
             .catch(error => {
                 console.error(error);
