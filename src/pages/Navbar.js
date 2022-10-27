@@ -22,11 +22,12 @@ const Navbar = () => {
                     <h1>Tutor</h1>
                 </div>
             </div>
+            <div>
+                <input type="checkbox" className="toggle" check />
+            </div>
             <div className="flex-none gap-2">
                 <ul className='flex gap-8 p-2 text-white text-lg hidden md:flex'>
-                    <div>
-                        <input type="checkbox" className="toggle" check />
-                    </div>
+
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/courses'>Courses</Link></li>
                     <li><Link to='/blog'>Blog</Link></li>
@@ -46,7 +47,6 @@ const Navbar = () => {
                 </div>
 
                 <div className="dropdown dropdown-end md:hidden">
-
                     <label tabIndex={0} className="btn btn-ghost ">
                         <div className="w-10 rounded-full">
                             {/* <FaBars className='text-2xl mx-auto' /> */}
