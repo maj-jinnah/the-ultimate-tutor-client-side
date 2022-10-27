@@ -3,20 +3,21 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
 const LogIn = () => {
 
     const [error, setError] = useState('')
-    const { googleProviderLogin, signInUser } = useContext(AuthContext)
+    const { googleProviderLogin, githubProviderLogin, signInUser } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
 
     const from = location.state?.from?.pathname || '/';
 
     const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider()
 
     const handelGoogleSignIn = () => {
         googleProviderLogin(googleProvider)
@@ -27,6 +28,16 @@ const LogIn = () => {
             })
             .catch(error => console.error(error))
 
+    }
+
+    const handelGithubSingIn = () => {
+        githubProviderLogin(githubProvider)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.error(error))
     }
 
     const handelSubmit = (event) => {
@@ -87,7 +98,7 @@ const LogIn = () => {
 
                         <div className='flex flex-col'>
                             <button onClick={handelGoogleSignIn} className="btn btn-primary mb-5"><FaGoogle className='text-xl mr-3'></FaGoogle>Login with Google</button>
-                            <button className="btn btn-primary"><FaGithub className='text-xl mr-3'></FaGithub> Login with Github</button>
+                            <button onClick={handelGithubSingIn} className="btn btn-primary"><FaGithub className='text-xl mr-3'></FaGithub> Login with Github</button>
                         </div>
                     </form>
 
