@@ -9,6 +9,7 @@ import ErrorPage from "../../pages/ErrorPage";
 import CardDetails from "../../pages/CardDetails";
 import CheckOut from "../../pages/CheckOut";
 import FAQ from "../../pages/FAQ";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -31,7 +32,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/checkout',
-                element: <CheckOut></CheckOut>
+                element: <PrivetRoute><CheckOut></CheckOut></PrivetRoute>
             },
             {
                 path: '/login',
