@@ -22,17 +22,17 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                loader: () => fetch("http://localhost:5000/courses"),
+                loader: () => fetch("https://the-ultimate-tutor-server-side.vercel.app/courses"),
                 element: <Courses></Courses>
             },
             {
                 path: '/courses/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+                loader: ({ params }) => fetch(`https://the-ultimate-tutor-server-side.vercel.app/courses/${params.id}`),
                 element: <CardDetails></CardDetails>
             },
             {
                 path: '/checkout/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+                loader: ({ params }) => fetch(`https://the-ultimate-tutor-server-side.vercel.app/courses/${params.id}`),
                 element: <PrivetRoute><CheckOut></CheckOut></PrivetRoute>
             },
             {

@@ -25,7 +25,7 @@ const Navbar = () => {
             <div className="flex-none gap-2">
                 <ul className='flex gap-8 p-2 text-white text-lg hidden md:flex'>
                     <div>
-                        {/* <input type="checkbox" className="toggle" check /> */}
+                        <input type="checkbox" className="toggle" check />
                     </div>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/courses'>Courses</Link></li>
